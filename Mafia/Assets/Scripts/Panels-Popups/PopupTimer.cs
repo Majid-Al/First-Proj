@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class PanelTimer : MonoBehaviour
+public class PopupTimer : MonoBehaviour
 {
 
     [SerializeField]
