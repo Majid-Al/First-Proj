@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class PlayerVotingScript : MonoBehaviour
+public class PlayerVotingPrefab : MonoBehaviour
 {
     [SerializeField]TMP_Text nameText;
     [SerializeField]TMP_Text roleText;
@@ -11,6 +11,11 @@ public class PlayerVotingScript : MonoBehaviour
     public void AddVote()
     {
         votes++;
+        voteText.text = votes.ToString();
+    }    
+    public void RemoveVote()
+    {
+        votes--;
         voteText.text = votes.ToString();
     }
 }

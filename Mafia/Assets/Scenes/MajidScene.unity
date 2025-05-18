@@ -2750,10 +2750,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Close\n\u0628\u0631\u0627\u06CC\n\u06CC\u0627\u0631\u0628"
+  m_text: 'Close
+
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d97baf904d0a204793d7429af711ec3, type: 2}
-  m_sharedMaterial: {fileID: 1249124324123707554, guid: 7d97baf904d0a204793d7429af711ec3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
