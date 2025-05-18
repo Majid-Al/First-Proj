@@ -44,6 +44,7 @@ public class Panel_NewGame : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.playerNames = new List<string>(listPlayerName);
             Debug.Log("It  is Ok");
             Debug.Log($"{listPlayerName.Count} + listPlayer");
         }
