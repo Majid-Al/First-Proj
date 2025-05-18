@@ -7,7 +7,8 @@ public class PopupVote : MonoBehaviour
     [SerializeField]
     GameObject playersPrefab;
     [SerializeField]
-    Transform playersList;
+    Transform playersListParent;
+    List<PlayerVotingPrefab> instantiatedPlayersList = new List<PlayerVotingPrefab>();
 
     private void Start()
     {
@@ -15,11 +16,12 @@ public class PopupVote : MonoBehaviour
          //   List<object> player = new List<object>();
        // foreach (object obj in the-Recived-List-of-players-with-theyr-role)
        // {
-            PlayerVotingPrefab item = Instantiate(playersPrefab, playersList, true).GetComponent<PlayerVotingPrefab>();
+            PlayerVotingPrefab item = Instantiate(playersPrefab, playersListParent, true).GetComponent<PlayerVotingPrefab>();
+            instantiatedPlayersList.Add(item);
            // item.nameText = obj.playerName;
-            //item.roleText = obj.role;
+           //item.roleText = obj.role;
 
-       // }
+        // }
 
 
     }
@@ -30,7 +32,7 @@ public class PopupVote : MonoBehaviour
 
     public void ResetVotes()
     {
-        
+        //instantiatedPlayersList.voteText == "00";
     }
 
 
