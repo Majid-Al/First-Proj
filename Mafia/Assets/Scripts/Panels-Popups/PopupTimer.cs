@@ -9,8 +9,6 @@ public class PopupTimer : MonoBehaviour
 
     [SerializeField]
     RTLTextMeshPro text;
-    [SerializeField]
-    TMP_InputField inputField;
 
     [SerializeField]
     AudioSource textAudioSource;
@@ -28,7 +26,7 @@ public class PopupTimer : MonoBehaviour
         while (time > 0 )
         {
             System.TimeSpan newTime = System.TimeSpan.FromSeconds(time);
-            text.text = newTime.ToString(@"mm\:ss");
+            text.text = newTime.ToString(@"ss\:mm");
             yield return new WaitForSeconds(1);
             time--;
         }
