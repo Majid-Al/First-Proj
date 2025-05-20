@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
 using TMPro;
-using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Panel_Roles : MonoBehaviour
@@ -10,6 +11,7 @@ public class Panel_Roles : MonoBehaviour
     [SerializeField] private Transform cityContainer;
     [SerializeField] private Transform independentContainer;
     [SerializeField] private RoleItemUI roleItemPrefab;
+    [SerializeField] private GameObject PannelRevealRole;
 
     [SerializeField] private Button nextButton;
 
@@ -75,11 +77,31 @@ public class Panel_Roles : MonoBehaviour
         if (GetCurrentTotalSelected() == totalPlayers)
         {
             Debug.Log("SUCCESS");
+            SaveSelectedRoles();
         }
         else
         {
             Debug.LogWarning("Not Ok !");
         }
+    }
+
+    public void SaveSelectedRoles()
+    {
+        List<RoleItem> finalRoles = new List<RoleItem>();
+
+        foreach (var role in allRoles)
+        {
+            for (int i = 0; i < role.count; i++)
+            {
+                finalRoles.Add(role); 
+            }
+        }
+
+        finalRoles = finalRoles.OrderBy(x => Random.value).ToList();
+
+        GameManager.Instance.selectedRoles = finalRoles;
+        PannelRevealRole.SetActive(true);
+        this.gameObject.SetActive(false);
     }
 
 }
