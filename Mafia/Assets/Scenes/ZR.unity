@@ -692,6 +692,7 @@ MonoBehaviour:
   beforeRevealPanel: {fileID: 434931153}
   afterRevealPanel: {fileID: 992720680}
   playerNameText: {fileID: 434931152}
+  playerAvatar: {fileID: 434931157}
   revealButton: {fileID: 434931151}
   revealedRoleText: {fileID: 992720679}
   revealedRoleImage: {fileID: 992720681}
@@ -863,6 +864,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4026062305237648871, guid: 85ac7d3901677ea49afb32db4c99bb3a, type: 3}
   m_PrefabInstance: {fileID: 434931149}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &434931157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5925580048950422694, guid: 85ac7d3901677ea49afb32db4c99bb3a, type: 3}
+  m_PrefabInstance: {fileID: 434931149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434931153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &454331994
 GameObject:
   m_ObjectHideFlags: 0
@@ -2106,6 +2118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNames: []
   selectedRoles: []
+  players: []
 --- !u!4 &758393090
 Transform:
   m_ObjectHideFlags: 0
@@ -2131,6 +2144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 807047957}
   - component: {fileID: 807047958}
+  - component: {fileID: 807047959}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -2156,7 +2170,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 300}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &807047958
 MonoBehaviour:
@@ -2182,6 +2196,20 @@ MonoBehaviour:
   m_Spacing: {x: 100, y: 100}
   m_Constraint: 1
   m_ConstraintCount: 3
+--- !u!114 &807047959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807047956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 1
 --- !u!1 &828474356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,7 +2262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 807047957}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -3327,7 +3355,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1096562391}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1135310321}
+        m_TargetAssemblyTypeName: Panel_Roles, Assembly-CSharp
+        m_MethodName: OnNextButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1096562391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3799,7 +3839,27 @@ MonoBehaviour:
   inputName: {fileID: 505764805}
   listPlayerName: []
   Panel_Roles: {fileID: 1135310321}
-  availableImages: []
+  availableImages:
+  - {fileID: 21300000, guid: 20a0a4d2bf418924eb735d8c4bb316ce, type: 3}
+  - {fileID: 21300000, guid: ca9f8a96a59c73f49939a86178282d35, type: 3}
+  - {fileID: 21300000, guid: 55a3847d07ec2f94ab5e65c8a6c673be, type: 3}
+  - {fileID: 21300000, guid: c3cff004639519041a8eb5a18425b43a, type: 3}
+  - {fileID: 21300000, guid: 81eebc70eb526954c8467408feee7465, type: 3}
+  - {fileID: 21300000, guid: 7284348e6566b1f458d9e2fb5e325816, type: 3}
+  - {fileID: 21300000, guid: 18bb24de9f210384cae1761cf3444916, type: 3}
+  - {fileID: 21300000, guid: bd84e8b77533a9244a1a78bc67846853, type: 3}
+  - {fileID: 21300000, guid: 644f6649e2a427a41b0f54840c34c25a, type: 3}
+  - {fileID: 21300000, guid: 723c4ffb1b0f13242a0b80bcc9a8e7e8, type: 3}
+  - {fileID: 21300000, guid: a723f898661cfae418bfa10dba7eecf1, type: 3}
+  - {fileID: 21300000, guid: bf013210a5e7424489114efadfaa9025, type: 3}
+  - {fileID: 21300000, guid: cb5b22fb078f2e34da88c5a458c8226b, type: 3}
+  - {fileID: 21300000, guid: 17c9c73fce953d64ca8e5ad4ab5710c1, type: 3}
+  - {fileID: 21300000, guid: aaecd3554a8e2ce45ac75c633565cd19, type: 3}
+  - {fileID: 21300000, guid: 0a6214fb99c60704db6e6dc989775df4, type: 3}
+  - {fileID: 21300000, guid: 0bd1b00561b75c144875d47c30ce6af4, type: 3}
+  - {fileID: 21300000, guid: d7089c43c585aa449a18bfc08ef015ff, type: 3}
+  - {fileID: 21300000, guid: cd404b2298969514a9ef1c3572470a28, type: 3}
+  - {fileID: 21300000, guid: a7aa2acff22f6e14e8686aa54ffab63d, type: 3}
   nextButton: {fileID: 1632144588}
 --- !u!114 &1415441284
 MonoBehaviour:

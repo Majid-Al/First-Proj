@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using RTLTMPro;
 
 public class RoleRevealController : MonoBehaviour
 {
@@ -10,21 +11,22 @@ public class RoleRevealController : MonoBehaviour
     public GameObject afterRevealPanel;
 
     [Header("Before Reveal UI")]
-    public TMP_Text playerNameText;
+    public RTLTextMeshPro playerNameText;
+    public Image playerAvatar;
     public Button revealButton;
 
     [Header("After Reveal UI")]
-    public TMP_Text revealedRoleText;
+    public RTLTextMeshPro revealedRoleText;
     public Image revealedRoleImage;
     public Button nextPlayerButton;
 
-    private List<string> playerNames;
+    private List<PlayerData> players;
     private List<RoleItem> selectedRoles;
     private int currentIndex = 0;
 
     void Start()
     {
-        playerNames = GameManager.Instance.playerNames;
+        players = GameManager.Instance.players;
         selectedRoles = GameManager.Instance.selectedRoles;
 
         Shuffle(selectedRoles); 
@@ -36,7 +38,10 @@ public class RoleRevealController : MonoBehaviour
         beforeRevealPanel.SetActive(true);
         afterRevealPanel.SetActive(false);
 
-        playerNameText.text = playerNames[currentIndex];
+        playerNameText.text = players[currentIndex].name;
+        Debug.Log(playerNameText.text);
+        Debug.Log(players[currentIndex].name);
+        playerAvatar.sprite = players[currentIndex].avatar; 
 
         revealButton.onClick.RemoveAllListeners();
         revealButton.onClick.AddListener(() =>
@@ -58,7 +63,7 @@ public class RoleRevealController : MonoBehaviour
         nextPlayerButton.onClick.AddListener(() =>
         {
             currentIndex++;
-            if (currentIndex < playerNames.Count)
+            if (currentIndex < players.Count) 
                 ShowBeforePanel();
             else
                 Debug.Log("All Role Showed!");

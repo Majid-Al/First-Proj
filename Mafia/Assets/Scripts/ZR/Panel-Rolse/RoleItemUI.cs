@@ -1,10 +1,11 @@
-﻿using TMPro;
+﻿using RTLTMPro;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class RoleItemUI : MonoBehaviour
 {
-    public TMP_Text roleNameText;
+    public RTLTextMeshPro roleNameText;
     public Image roleImageText;
     public TMP_Text countText;
     public Button plusButton;
@@ -18,6 +19,10 @@ public class RoleItemUI : MonoBehaviour
         roleData = data;
         panelRoles = panel;
         roleNameText.text = data.roleName;
+
+        Debug.Log(data.roleName);
+        Debug.Log(roleNameText.text);
+
         roleImageText.sprite = roleData.roleImage;
 
         plusButton.onClick.RemoveAllListeners();

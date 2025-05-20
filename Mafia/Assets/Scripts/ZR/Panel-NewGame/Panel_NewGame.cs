@@ -27,15 +27,20 @@ public class Panel_NewGame : MonoBehaviour
 
         if(string.IsNullOrEmpty(playerName))
             return;
-        
-    //    int index = Random.Range(0,unAvailableImages.Count);
-    //    Sprite selectedSprite=unAvailableImages[index];
-     //   unAvailableImages.RemoveAt(index);
 
-       var player= Instantiate(playerPreview , content);
-       player.Setup(playerName  /*selectedSprite*/);
+        if (unAvailableImages.Count == 0)
+            unAvailableImages = new List<Sprite>(availableImages);
+
+        int index = Random.Range(0, unAvailableImages.Count);
+        Sprite selectedSprite = unAvailableImages[index];
+        unAvailableImages.RemoveAt(index);
+
+        var player = Instantiate(playerPreview , content);
+       player.Setup(playerName ,selectedSprite);
 
         GameManager.Instance.playerNames.Add(playerName);
+        GameManager.Instance.players.Add(new PlayerData(playerName, selectedSprite));
+
         inputName.text = "";
     }
     public void RemoveList(string name)
@@ -63,5 +68,18 @@ public class Panel_NewGame : MonoBehaviour
             //GameManager.Instance.playerNames = new List<string>(listPlayerName);
             Debug.Log("It  is Ok");
         }
+    }
+}
+
+[System.Serializable]
+public class PlayerData
+{
+    public string name;
+    public Sprite avatar;
+
+    public PlayerData(string name, Sprite avatar)
+    {
+        this.name = name;
+        this.avatar = avatar;
     }
 }

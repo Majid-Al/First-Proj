@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     public List<string> playerNames = new List<string>();
     public List<RoleItem> selectedRoles = new List<RoleItem>();
+    public List<PlayerData> players = new List<PlayerData>();
+
 
     private void Awake()
     {
