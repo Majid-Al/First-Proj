@@ -23,12 +23,12 @@ public class Panel_NewGame : MonoBehaviour
         if(string.IsNullOrEmpty(playerName))
             return;
         
-        int index = Random.Range(0,unAvailableImages.Count);
-        Sprite selectedSprite=unAvailableImages[index];
-        unAvailableImages.RemoveAt(index);
+    //    int index = Random.Range(0,unAvailableImages.Count);
+    //    Sprite selectedSprite=unAvailableImages[index];
+     //   unAvailableImages.RemoveAt(index);
 
        var player= Instantiate(playerPreview , content);
-       player.Setup(playerName , selectedSprite);
+       player.Setup(playerName  /*selectedSprite*/);
 
         listPlayerName.Add(playerName);
         inputName.text = "";

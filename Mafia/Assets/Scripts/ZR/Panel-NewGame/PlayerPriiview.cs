@@ -10,10 +10,10 @@ public class PlayerPriiview : MonoBehaviour
 
 
 
-    public void Setup(string playerName,Sprite playerImage)
+    public void Setup(string playerName/*Sprite playerImage*/)
     {
         this.playerName.text = playerName;
-        this.playerImage.sprite = playerImage;
+        //this.playerImage.sprite = playerImage;
     }
     public void PlayerImage()
     {

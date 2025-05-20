@@ -1,49 +1,102 @@
-using RTLTMPro;
+﻿using UnityEngine;
 using TMPro;
-using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
-public class Panel_Rolse : MonoBehaviour
+public class Panel_Roles : MonoBehaviour
 {
-    [SerializeField] private RTLTextMeshPro mafiaCountText;
-    [SerializeField] private RTLTextMeshPro cityCountText;
-    [SerializeField] private RTLTextMeshPro independentCountText;
-    private int totalPlayers;
+    [SerializeField] private List<RoleItem> allRoles;
+    [SerializeField] private Transform mafiaContainer;
+    [SerializeField] private Transform cityContainer;
+    [SerializeField] private Transform independentContainer;
+    [SerializeField] private RoleItemUI roleItemPrefab;
 
-    private int mafiaCount = 0;
-    private int cityCount = 0;
-    private int independentCount = 0;
+    [SerializeField] private Button nextButton;
+
+    private int totalPlayers;
 
     private void Start()
     {
-        int count = GameManager.Instance.playerNames.Count;
-        UpdateUI();
-    }
-    public void IncreaseMafia()
-    {
-        if (mafiaCount + cityCount + independentCount < totalPlayers)
-            mafiaCount++;
-        UpdateUI();
-    }
-    public void IncreaseCity()
-    {
-        if (mafiaCount + cityCount + independentCount < totalPlayers)
-            cityCount++;
-        UpdateUI();
+        totalPlayers = GameManager.Instance.playerNames.Count;
+        CreateUIItems();
+        OnRoleCountChanged();
     }
 
-    public void IncreaseIndependent()
+    private void CreateUIItems()
     {
-        if (mafiaCount + cityCount + independentCount < totalPlayers)
-            independentCount++;
-        UpdateUI();
-    }
-    private void UpdateUI()
-    {
-        mafiaCountText.text = mafiaCount.ToString();
-        cityCountText.text = cityCount.ToString();
-        independentCountText.text = independentCount.ToString();
+        foreach (var role in allRoles)
+        {
+            Transform parent = GetParentContainer(role.category);
+            var ui = Instantiate(roleItemPrefab, parent);
+            ui.Setup(role, this);
+        }
     }
 
+    private Transform GetParentContainer(RoleCategory category)
+    {
+        switch (category)
+        {
+            case RoleCategory.Mafia: return mafiaContainer;
+            case RoleCategory.City: return cityContainer;
+            case RoleCategory.Independent: return independentContainer;
+            default: return null;
+        }
+    }
 
+    public bool CanAddMoreRoles()
+    {
+        return GetCurrentTotalSelected() < totalPlayers;
+    }
+
+    public void OnRoleCountChanged()
+    {
+        int totalSelected = GetCurrentTotalSelected();
+        nextButton.interactable = (totalSelected == totalPlayers);
+        Debug.Log($"‌Choose: {totalSelected}/{totalPlayers}");
+    }
+
+    private int GetCurrentTotalSelected()
+    {
+        int total = 0;
+        foreach (var role in allRoles)
+        {
+            total += role.count;
+        }
+        return total;
+    }
+
+    public List<RoleItem> GetSelectedRoles()
+    {
+        return allRoles.FindAll(role => role.count > 0);
+    }
+
+    public void OnNextButtonClicked()
+    {
+        if (GetCurrentTotalSelected() == totalPlayers)
+        {
+            Debug.Log("SUCCESS");
+        }
+        else
+        {
+            Debug.LogWarning("Not Ok !");
+        }
+    }
 
 }
+public enum RoleCategory
+{
+    Mafia,
+    City,
+    Independent
+}
+
+[System.Serializable]
+public class RoleItem
+{
+    public string roleName;
+    public Sprite roleImage;
+    public RoleCategory category;
+    public int count=0;
+    public bool isMultipleAllowed;
+}
+
