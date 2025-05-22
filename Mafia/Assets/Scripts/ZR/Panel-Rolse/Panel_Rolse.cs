@@ -120,5 +120,8 @@ public class RoleItem
     public RoleCategory category;
     public int count=0;
     public bool isMultipleAllowed;
+
+    public string actionText;
+    public Sprite actionIcon;
 }
 

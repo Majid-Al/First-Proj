@@ -24,6 +24,7 @@ public class RoleRevealController : MonoBehaviour
     private List<RoleItem> selectedRoles;
     private int currentIndex = 0;
 
+    public GameObject panelGame;
     void Start()
     {
         players = GameManager.Instance.players;
@@ -63,10 +64,15 @@ public class RoleRevealController : MonoBehaviour
         nextPlayerButton.onClick.AddListener(() =>
         {
             currentIndex++;
-            if (currentIndex < players.Count) 
+            if (currentIndex < players.Count)
                 ShowBeforePanel();
             else
+            {
+
                 Debug.Log("All Role Showed!");
+                panelGame.SetActive(true);
+                this.gameObject.SetActive(false);
+            }
         });
     }
 
