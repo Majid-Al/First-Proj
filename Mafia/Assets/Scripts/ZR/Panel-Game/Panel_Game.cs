@@ -65,7 +65,7 @@ public class Panel_Game : MonoBehaviour
 
     public Transform mafiaActionsParent;
     public Transform cityActionsParent;
-    public Transform independentActionsParent;
+    //public Transform independentActionsParent;
     public RoleAction actionItemPrefab;
 
 
@@ -90,9 +90,9 @@ public class Panel_Game : MonoBehaviour
                         targetParent = cityActionsParent;
                         break;
 
-                    case RoleCategory.Independent:
-                        targetParent = independentActionsParent;
-                        break;
+                    //case RoleCategory.Independent:
+                    //    targetParent = independentActionsParent;
+                    //    break;
                 }
 
                 if (targetParent != null)
