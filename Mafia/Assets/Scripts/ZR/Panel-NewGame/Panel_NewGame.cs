@@ -11,16 +11,21 @@ public class Panel_NewGame : MonoBehaviour
     [SerializeField] private TMP_InputField inputName;
     [SerializeField] private List<string> listPlayerName;
     [SerializeField] private Panel_Roles Panel_Roles;
-
     [SerializeField] private List<Sprite> availableImages;
-    private List<Sprite> unAvailableImages = new List<Sprite>();
-
     [SerializeField] private Button nextButton;
+    private List<Sprite> unAvailableImages = new List<Sprite>();
 
     private void Start()
     {
         unAvailableImages=new List<Sprite>(availableImages);
    }
+    private void Update()
+    {
+        int Count = GameManager.Instance.playerNames.Count;
+        bool Next = Count > 5;
+        nextButton.interactable = (Next);
+
+    }
     public void AddPlayer()
     {
        string playerName= inputName.text;
@@ -47,13 +52,6 @@ public class Panel_NewGame : MonoBehaviour
     {
         listPlayerName.Remove(name);
     }
-    private void Update()
-    {
-        int Count = GameManager.Instance.playerNames.Count;
-        bool Next = Count > 5;
-        nextButton.interactable = (Next);
-
-    }
     public void NextButton()
     {
 
@@ -65,7 +63,6 @@ public class Panel_NewGame : MonoBehaviour
         }
         else
         {
-            //GameManager.Instance.playerNames = new List<string>(listPlayerName);
             Debug.Log("It  is Ok");
         }
     }

@@ -35,7 +35,6 @@ public class FinalPlayerInfo : MonoBehaviour
 
     public void AddActionIcon(Sprite icon)
     {
-        //GameObject newIcon = new GameObject("ActionIcon", typeof(Image));
         GameObject newIcon = new GameObject("ActionIcon_" + actionIconHolder.childCount, typeof(Image));
         newIcon.transform.SetParent(actionIconHolder, false);
         Image img = newIcon.GetComponent<Image>();

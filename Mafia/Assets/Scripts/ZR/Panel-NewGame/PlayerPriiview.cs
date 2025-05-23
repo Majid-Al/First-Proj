@@ -8,19 +8,13 @@ public class PlayerPriiview : MonoBehaviour
 {
     [SerializeField] private RTLTextMeshPro playerName;
     [SerializeField] private Image playerImage;
-
-
-
     public void Setup(string playerName,Sprite playerImage)
     {
         this.playerName.text = playerName;
 
         this.playerImage.sprite = playerImage;
     }
-    public void PlayerImage()
-    {
-       
-    }
+
     public void Close()
     {
         Debug.Log(GameManager.Instance.playerNames.Count);
@@ -29,7 +23,5 @@ public class PlayerPriiview : MonoBehaviour
         Debug.Log(GameManager.Instance.playerNames.Count);
         Destroy(gameObject);
     }
-
-    //Action delete
 
 }
