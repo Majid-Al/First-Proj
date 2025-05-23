@@ -1004,8 +1004,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -69.88414, y: -21.375}
-  m_SizeDelta: {x: 150.2318, y: 42.75}
+  m_AnchoredPosition: {x: -51.063217, y: -21.375}
+  m_SizeDelta: {x: 187.8737, y: 42.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4507639923929098459
 CanvasRenderer:
@@ -1169,3 +1169,4 @@ MonoBehaviour:
   nameText: {fileID: 1469764327959040329}
   roleText: {fileID: 6270378476113971212}
   voteText: {fileID: 702864194836693953}
+  avatarImage: {fileID: 2925720742653964992}

@@ -1,10 +1,11 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using RTLTMPro;
 
 public class FinalPlayerRole : MonoBehaviour
 {
-    public TMP_Text roleNameText;
+    public RTLTextMeshPro roleNameText;
     public Image roleImage;
 
     public void Setup(string roleName, Sprite roleSprite)

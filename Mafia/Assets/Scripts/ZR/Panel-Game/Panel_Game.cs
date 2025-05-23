@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class Panel_Game : MonoBehaviour
 {
+    public static Panel_Game Instance;
+    void Awake() => Instance = this;
+
+
     [Header("Parents for scroll views")]
     public Transform playerInfoContent; 
     public Transform playerRoleContent; 
@@ -13,7 +17,7 @@ public class Panel_Game : MonoBehaviour
     [Header("Prefabs")]
     public GameObject playerInfoPrefab; 
     public GameObject playerRolePrefab;
-
+     
     public GameObject scrollViewA;
     public GameObject scrollViewB; 
 
@@ -48,6 +52,8 @@ public class Panel_Game : MonoBehaviour
             var infoGO = Instantiate(playerInfoPrefab, playerInfoContent);
             var infoUI = infoGO.GetComponent<FinalPlayerInfo>();
             infoUI.Setup(players[i].name, players[i].avatar);
+
+            infoGO.GetComponent<Button>().onClick.AddListener(() => infoUI.OnClick());
 
             // Instantiate Player Role
             var roleGO = Instantiate(playerRolePrefab, playerRoleContent);
@@ -105,4 +111,31 @@ public class Panel_Game : MonoBehaviour
             }
         }
     }
+
+    private FinalPlayerInfo selectedPlayer;
+
+    public void OnPlayerClicked(FinalPlayerInfo player)
+    {
+        if (selectedPlayer != null)
+            selectedPlayer.SetSelected(false); 
+
+        selectedPlayer = player;
+        selectedPlayer.SetSelected(true);
+    }
+
+    public void OnActionClicked(Sprite actionIcon)
+    {
+        if (selectedPlayer != null)
+        {
+            selectedPlayer.AddActionIcon(actionIcon);
+        }
+    }
+    [SerializeField] GameObject popupVotePanel;
+
+    public void OnClick_VoteButton()
+    {
+        popupVotePanel.SetActive(true);
+
+    }
+
 }

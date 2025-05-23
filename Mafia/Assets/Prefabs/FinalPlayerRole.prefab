@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 2900312225900982975}
   - component: {fileID: 3272303526248824055}
   - component: {fileID: 7524805439432258581}
-  - component: {fileID: 8512502812848604554}
+  - component: {fileID: 6971411255840608808}
   m_Layer: 5
   m_Name: FinalPlayerRole
   m_TagString: Untagged
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8512502812848604554
+--- !u!114 &6971411255840608808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1157609763251862766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d570628732afd41b0c7af71db0622c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43bfcc8c803234c43a0c3d93cc45be0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roleNameText: {fileID: 6379441152585508181}
