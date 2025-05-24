@@ -139,4 +139,16 @@ public class Panel_Game : MonoBehaviour
 
     }
 
+    public void ResetAllActionIcons()
+    {
+        foreach (Transform child in playerInfoContent)
+        {
+            FinalPlayerInfo info = child.GetComponent<FinalPlayerInfo>();
+            if (info != null)
+            {
+                info.ClearActionIcons();
+            }
+        }
+    }
+
 }
