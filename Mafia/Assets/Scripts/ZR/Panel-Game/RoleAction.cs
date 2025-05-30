@@ -14,7 +14,6 @@ public class RoleAction : MonoBehaviour
         this.actionName.text= actionName;
     }
 
-
     public void OnClick()
     {
         Panel_Game.Instance.OnActionClicked(actionIcon);

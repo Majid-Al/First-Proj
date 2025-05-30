@@ -9,14 +9,12 @@ public class Panel_Game : MonoBehaviour
     public static Panel_Game Instance;
     void Awake() => Instance = this;
 
-    [Header("Parents for scroll views")]
+    [Header("Parents for scroll view")]
     public Transform playerInfoContent; 
-    public Transform playerRoleContent; 
 
     [Header("Prefabs")]
     public FinalPlayerInfo playerInfoPrefab; 
     public FinalPlayerRole playerRolePrefab;
-
     public Transform mafiaActionsParent;
     public Transform cityActionsParent;
     public RoleAction actionItemPrefab;
@@ -28,7 +26,6 @@ public class Panel_Game : MonoBehaviour
         CreateFinalLists();
         ShowAllActions();
     }
-
     void CreateFinalLists()
     {
         var players = GameManager.Instance.players;
@@ -38,18 +35,15 @@ public class Panel_Game : MonoBehaviour
         {
             // Instantiate Player Info
             var infoGO = Instantiate(playerInfoPrefab, playerInfoContent);
-            //var infoUI = infoGO.GetComponent<FinalPlayerInfo>();
             infoGO.Setup(players[i].name, players[i].avatar);
             infoGO.GetComponent<Button>().onClick.AddListener(() => infoGO.OnClick());
 
             // Instantiate Player Role
             var roleGO = Instantiate(playerRolePrefab, infoGO.roleHolder);
-            //var roleUI = roleGO.GetComponent<FinalPlayerRole>(); 
             roleGO.Setup(roles[i].roleName, roles[i].roleImage);
 
         }
     }
-
     void ShowAllActions()
     {
         List<RoleItem> roles = GameManager.Instance.selectedRoles;
@@ -69,10 +63,6 @@ public class Panel_Game : MonoBehaviour
                     case RoleCategory.City:
                         targetParent = cityActionsParent;
                         break;
-
-                    //case RoleCategory.Independent:
-                    //    targetParent = independentActionsParent;
-                    //    break;
                 }
 
                 if (targetParent != null)
@@ -82,7 +72,7 @@ public class Panel_Game : MonoBehaviour
 
                     if (actionUI != null)
                     {
-                        actionUI.Setup(role.actionText, role.actionIcon);
+                        actionUI.Setup(role.roleName, role.actionIcon);
                     }
                     else
                     {
@@ -92,8 +82,6 @@ public class Panel_Game : MonoBehaviour
             }
         }
     }
-
-
     public void OnPlayerClicked(FinalPlayerInfo player)
     {
         if (selectedPlayer != null)
@@ -102,7 +90,6 @@ public class Panel_Game : MonoBehaviour
         selectedPlayer = player;
         selectedPlayer.SetSelected(true);
     }
-
     public void OnActionClicked(Sprite actionIcon)
     {
         if (selectedPlayer != null)
@@ -110,13 +97,10 @@ public class Panel_Game : MonoBehaviour
             selectedPlayer.AddActionIcon(actionIcon);
         }
     }
-
     public void OnClick_VoteButton()
     {
         popupVotePanel.SetActive(true);
-
     }
-
     public void ResetAllActionIcons()
     {
         foreach (Transform child in playerInfoContent)
@@ -128,8 +112,6 @@ public class Panel_Game : MonoBehaviour
             }
         }
     }
-
-
     public void OnShowRoleButtonPointerDown()
     {
         foreach (Transform child in playerInfoContent)
@@ -141,7 +123,6 @@ public class Panel_Game : MonoBehaviour
             }
         }
     }
-
     public void OnShowRoleButtonPointerUp()
     {
         foreach (Transform child in playerInfoContent)
