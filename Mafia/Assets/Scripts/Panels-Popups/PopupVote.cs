@@ -1,3 +1,4 @@
+﻿using RTLTMPro;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,21 +11,8 @@ public class PopupVote : MonoBehaviour
     Transform playersListParent;
     List<PlayerVotingPrefab> instantiatedPlayersList = new List<PlayerVotingPrefab>();
 
-    //private void Start()
-    //{
-
-    //     //   List<object> player = new List<object>();
-    //   // foreach (object obj in the-Recived-List-of-players-with-theyr-role)
-    //   // {
-    //        PlayerVotingPrefab item = Instantiate(playersPrefab, playersListParent, true).GetComponent<PlayerVotingPrefab>();
-    //        instantiatedPlayersList.Add(item);
-    //       // item.nameText = obj.playerName;
-    //       //item.roleText = obj.role;
-
-    //    // }
 
 
-    //}
 
     private void Start()
     {
@@ -41,13 +29,41 @@ public class PopupVote : MonoBehaviour
         }
     }
 
-
-
-
     public void ResetVotes()
     {
-        //instantiatedPlayersList.voteText == "00";
+        foreach(var playerItem in instantiatedPlayersList)
+        {
+            playerItem.ResetVote();
+        }
     }
 
 
-}
+    //Day/night cycle
+    bool day = false;
+    [SerializeField]
+    RTLTextMeshPro phase;
+    [SerializeField]
+    RTLTextMeshPro dayCounter;
+    int dayCount = 0;
+
+    public void NextPhase()
+    {
+        if(day)
+        {
+            day = false;
+            phase.text = "شب";
+            phase.color = new Color(224f / 255f, 60f / 255f, 50f / 255f, 255f / 255f);
+        }
+        else
+        {
+            day = true;
+            phase.text = "روز";
+            phase.color = new Color(50f / 255f, 224f / 255f, 73f / 255f, 255f / 255f);
+            dayCount++;
+            dayCounter.text = dayCount.ToString();
+        }
+
+    }
+
+
+    }

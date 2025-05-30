@@ -7,7 +7,8 @@ public class PlayerVotingPrefab : MonoBehaviour
 {
     [SerializeField] RTLTextMeshPro nameText;
     [SerializeField] RTLTextMeshPro roleText;
-    [SerializeField] RTLTextMeshPro voteText;
+    [SerializeField]
+    public RTLTextMeshPro voteText;
     [SerializeField] Image avatarImage;
     int votes = 0;
 
@@ -24,8 +25,11 @@ public class PlayerVotingPrefab : MonoBehaviour
     }
     public void RemoveVote()
     {
-        // votes--;
         votes = Mathf.Max(0, votes - 1);
         voteText.text = votes.ToString();
+    }
+    public void ResetVote()
+    {
+        voteText.text = "00";
     }
 }
