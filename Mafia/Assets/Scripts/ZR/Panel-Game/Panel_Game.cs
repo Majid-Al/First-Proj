@@ -9,36 +9,24 @@ public class Panel_Game : MonoBehaviour
     public static Panel_Game Instance;
     void Awake() => Instance = this;
 
-
     [Header("Parents for scroll views")]
     public Transform playerInfoContent; 
     public Transform playerRoleContent; 
 
     [Header("Prefabs")]
-    public GameObject playerInfoPrefab; 
-    public GameObject playerRolePrefab;
-     
-    public GameObject scrollViewA;
-    public GameObject scrollViewB; 
+    public FinalPlayerInfo playerInfoPrefab; 
+    public FinalPlayerRole playerRolePrefab;
 
-    public void OnPointerDown()
-    {
-        scrollViewA.SetActive(false);
-        scrollViewB.SetActive(true);
-    }
-
-    public void OnPointerUp()
-    {
-        scrollViewA.SetActive(true);
-        scrollViewB.SetActive(false);
-    }
+    public Transform mafiaActionsParent;
+    public Transform cityActionsParent;
+    public RoleAction actionItemPrefab;
+    private FinalPlayerInfo selectedPlayer;
+    [SerializeField] GameObject popupVotePanel;
 
     void Start()
     {
         CreateFinalLists();
-
         ShowAllActions();
-
     }
 
     void CreateFinalLists()
@@ -50,25 +38,17 @@ public class Panel_Game : MonoBehaviour
         {
             // Instantiate Player Info
             var infoGO = Instantiate(playerInfoPrefab, playerInfoContent);
-            var infoUI = infoGO.GetComponent<FinalPlayerInfo>();
-            infoUI.Setup(players[i].name, players[i].avatar);
-
-            infoGO.GetComponent<Button>().onClick.AddListener(() => infoUI.OnClick());
+            //var infoUI = infoGO.GetComponent<FinalPlayerInfo>();
+            infoGO.Setup(players[i].name, players[i].avatar);
+            infoGO.GetComponent<Button>().onClick.AddListener(() => infoGO.OnClick());
 
             // Instantiate Player Role
-            var roleGO = Instantiate(playerRolePrefab, playerRoleContent);
-            var roleUI = roleGO.GetComponent<FinalPlayerRole>(); 
-            roleUI.Setup(roles[i].roleName, roles[i].roleImage);
+            var roleGO = Instantiate(playerRolePrefab, infoGO.roleHolder);
+            //var roleUI = roleGO.GetComponent<FinalPlayerRole>(); 
+            roleGO.Setup(roles[i].roleName, roles[i].roleImage);
 
         }
     }
-
-    public Transform mafiaActionsParent;
-    public Transform cityActionsParent;
-    //public Transform independentActionsParent;
-    public RoleAction actionItemPrefab;
-
-
 
     void ShowAllActions()
     {
@@ -113,7 +93,6 @@ public class Panel_Game : MonoBehaviour
         }
     }
 
-    private FinalPlayerInfo selectedPlayer;
 
     public void OnPlayerClicked(FinalPlayerInfo player)
     {
@@ -131,7 +110,6 @@ public class Panel_Game : MonoBehaviour
             selectedPlayer.AddActionIcon(actionIcon);
         }
     }
-    [SerializeField] GameObject popupVotePanel;
 
     public void OnClick_VoteButton()
     {
@@ -150,5 +128,31 @@ public class Panel_Game : MonoBehaviour
             }
         }
     }
+
+
+    public void OnShowRoleButtonPointerDown()
+    {
+        foreach (Transform child in playerInfoContent)
+        {
+            FinalPlayerInfo info = child.GetComponent<FinalPlayerInfo>();
+            if (info != null)
+            {
+                info.ShowRoleHolder();
+            }
+        }
+    }
+
+    public void OnShowRoleButtonPointerUp()
+    {
+        foreach (Transform child in playerInfoContent)
+        {
+            FinalPlayerInfo info = child.GetComponent<FinalPlayerInfo>();
+            if (info != null)
+            {
+                info.ShowPlayerHolder();
+            }
+        }
+    }
+
 
 }

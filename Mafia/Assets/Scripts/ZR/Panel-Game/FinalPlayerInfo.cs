@@ -11,6 +11,8 @@ public class FinalPlayerInfo : MonoBehaviour
 
     public GameObject selectionHighlight;
     public Transform actionIconHolder;
+    public Transform roleHolder;
+    public Transform playerHolder;
 
     private string playerName;
 
@@ -52,5 +54,22 @@ public class FinalPlayerInfo : MonoBehaviour
     {
         Panel_Game.Instance.OnPlayerClicked(this);
     }
+    public void OnClick_ShowRole()
+    {
+        playerHolder.gameObject.SetActive(false);
+        roleHolder.gameObject.SetActive(true);
+    }
+    public void ShowRoleHolder()
+    {
+        playerHolder.gameObject.SetActive(false);
+        roleHolder.gameObject.SetActive(true);
+    }
+
+    public void ShowPlayerHolder()
+    {
+        playerHolder.gameObject.SetActive(true);
+        roleHolder.gameObject.SetActive(false);
+    }
+
 }
 
