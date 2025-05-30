@@ -17,17 +17,21 @@ public class PlayerPriiview : MonoBehaviour
     }
     public void Close()
     {
-        Debug.Log(GameManager.Instance.playerNames.Count);
         Debug.Log(playerName.text);
-        GameManager.Instance.playerNames.Remove(playerName.text);
-        Debug.Log(GameManager.Instance.playerNames.Count);
-
-
         string nameKey = "Player" + playerIndex + "_Name";
         string avatarKey = "Player" + playerIndex + "_Avatar";
 
-        PlayerPrefs.DeleteKey(nameKey);
-        PlayerPrefs.DeleteKey(avatarKey);
+        for (int i = GameManager.Instance.players.Count - 1; i >= 0; i--)
+        {
+            var item = GameManager.Instance.players[i];
+            if (item.name == playerName.text)
+            {
+                PlayerPrefs.DeleteKey(nameKey);
+                PlayerPrefs.DeleteKey(avatarKey);
+                GameManager.Instance.players.RemoveAt(i);
+            }
+        }
+
         Destroy(gameObject);
     }
 

@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public List<string> playerNames = new List<string>();
     public List<RoleItem> selectedRoles = new List<RoleItem>();
     public List<PlayerData> players = new List<PlayerData>();
 

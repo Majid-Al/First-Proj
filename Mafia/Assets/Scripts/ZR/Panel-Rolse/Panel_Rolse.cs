@@ -19,7 +19,7 @@ public class Panel_Roles : MonoBehaviour
 
     private void Start()
     {
-        totalPlayers = GameManager.Instance.playerNames.Count;
+        totalPlayers = GameManager.Instance.players.Count;
         CreateUIItems();
         OnRoleCountChanged();
     }

@@ -25,10 +25,9 @@ public class Panel_NewGame : MonoBehaviour
    }
     private void Update()
     {
-        int Count = GameManager.Instance.playerNames.Count;
-        bool Next = Count > 5;
-        nextButton.interactable = (Next);
+        nextButton.interactable = GameManager.Instance.players.Count > 5;
     }
+
     public void AddPlayer()
     {
         string playerName = inputName.text;
@@ -54,7 +53,6 @@ public class Panel_NewGame : MonoBehaviour
         var player = Instantiate(playerPreview, content);
         player.Setup(playerName, selectedSprite, playerCount);
 
-        GameManager.Instance.playerNames.Add(playerName);
         GameManager.Instance.players.Add(new PlayerData(playerName, selectedSprite));
         inputName.text = "";
 
@@ -64,7 +62,7 @@ public class Panel_NewGame : MonoBehaviour
         PlayerPrefs.SetString(nameKey, playerName);
         PlayerPrefs.SetInt(avatarKey, index);
         PlayerPrefs.SetInt("SavedPlayerCount", playerCount);
-
+        nextButton.interactable = GameManager.Instance.players.Count > 5;
     }
     public void AddPlayer(string playerName, int avatarIndex,int playerSaveIndex)
     {
@@ -80,11 +78,9 @@ public class Panel_NewGame : MonoBehaviour
 
         var player = Instantiate(playerPreview, content);
         player.Setup(playerName, selectedSprite, playerSaveIndex);
-
-        GameManager.Instance.playerNames.Add(playerName);
         GameManager.Instance.players.Add(new PlayerData(playerName, selectedSprite));
-
         inputName.text = "";
+        nextButton.interactable = GameManager.Instance.players.Count > 5;
     }
     public void RemoveList(string name)
     {
@@ -100,6 +96,7 @@ public class Panel_NewGame : MonoBehaviour
         {
             PlayerPrefs.SetInt("SavedPlayerCount", 0);
         }
+        nextButton.interactable = GameManager.Instance.players.Count > 5;
     }
     public void NextButton()
     {
