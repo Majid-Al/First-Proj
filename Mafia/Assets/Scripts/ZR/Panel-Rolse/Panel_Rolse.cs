@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RTLTMPro;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -12,9 +13,14 @@ public class Panel_Roles : MonoBehaviour
     [SerializeField] private Transform independentContainer;
     [SerializeField] private RoleItemUI roleItemPrefab;
     [SerializeField] private GameObject PannelRevealRole;
-
+    [SerializeField] private Button addRoleButtonPrefab;
+    [SerializeField] private GameObject popupAddRole;
+    [SerializeField] private Button confirmButton;
     [SerializeField] private Button nextButton;
+    [SerializeField] private TMP_InputField roleNameInputField; 
+    [SerializeField] private Sprite questionMan; 
 
+    private RoleCategory selectedCategoryForAdding;
     private int totalPlayers;
 
     private void Start()
@@ -22,6 +28,51 @@ public class Panel_Roles : MonoBehaviour
         totalPlayers = GameManager.Instance.players.Count;
         CreateUIItems();
         OnRoleCountChanged();
+        confirmButton.onClick.AddListener(OnConfirmAddRole);
+
+    }
+    private void OnConfirmAddRole()
+    {
+        string newRoleName = roleNameInputField.text.Trim();
+        if (string.IsNullOrEmpty(newRoleName))
+        {
+            Debug.LogWarning("نام نقش نمی‌تواند خالی باشد!");
+            return;
+        }
+
+        RoleItem newRole = new RoleItem
+        {
+            roleName = newRoleName,
+            category = selectedCategoryForAdding,
+            roleImage = questionMan, 
+            count = 0,
+            isMultipleAllowed = true
+        };
+
+        allRoles.Add(newRole);
+
+        Transform parent = GetParentContainer(selectedCategoryForAdding);
+        Debug.Log("Parent: " + parent.name);
+        foreach (Transform child in parent)
+        {
+            Debug.Log("Child: " + child.name);
+        }
+
+        Button addButton = parent.GetComponentsInChildren<Button>()
+                                 .FirstOrDefault(btn => btn.name == "AddBtn(Clone)");
+       if (addButton != null)
+        {
+            int addButtonIndex = addButton.transform.GetSiblingIndex();
+            var ui = Instantiate(roleItemPrefab, parent);
+            ui.Setup(newRole, this);
+            ui.transform.SetSiblingIndex(addButtonIndex);
+        }
+        else
+        {
+            Debug.LogWarning("دکمه AddBtn پیدا نشد!");
+        }
+
+        popupAddRole.SetActive(false);
     }
 
     private void CreateUIItems()
@@ -32,7 +83,23 @@ public class Panel_Roles : MonoBehaviour
             var ui = Instantiate(roleItemPrefab, parent);
             ui.Setup(role, this);
         }
+
+        AddAddButton(mafiaContainer, RoleCategory.Mafia);
+        AddAddButton(cityContainer, RoleCategory.City);
+        AddAddButton(independentContainer, RoleCategory.Independent);
     }
+    private void AddAddButton(Transform parent, RoleCategory category)
+    {
+        var addButton = Instantiate(addRoleButtonPrefab, parent);
+        addButton.onClick.AddListener(() => OnAddButtonClicked(category));
+    }
+    private void OnAddButtonClicked(RoleCategory category)
+    {
+        selectedCategoryForAdding = category;
+        roleNameInputField.text = "";
+        popupAddRole.SetActive(true);
+    }
+
 
     private Transform GetParentContainer(RoleCategory category)
     {
