@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +22,14 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject); 
+    }
+
+    [SerializeField] private GameObject musicButton;
+    Image musicButtonImage;
+    private void Start()
+    {
+        StartCoroutine(WaitAndPlayNext());
+        musicButtonImage = musicButton.GetComponent<Image>();
     }
     public void RestoreSavedPlayers(Panel_NewGame panel_NewGame)
     {
@@ -43,4 +54,35 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+    //Audio section
+    [SerializeField] private AudioClip[] clips;
+    [SerializeField] AudioSource musicAudioSource;
+    [SerializeField] private Sprite audioImageOn,audioImageOff;
+    bool mute = false;
+    public void MusicButtonToggle()
+    {
+        if (mute)
+        {
+            musicAudioSource.mute = false;
+            musicButtonImage.sprite = audioImageOn;
+            mute = false;
+        }
+        else
+        {
+            musicAudioSource.mute = true;
+            musicButtonImage.sprite = audioImageOff;
+            mute = true;
+        }
+    }
+
+    private IEnumerator WaitAndPlayNext()
+    {
+
+        musicAudioSource.clip = clips[Random.Range(0, clips.Length)];
+        musicAudioSource.Play();
+        yield return new WaitForSeconds(musicAudioSource.clip.length);
+    }
+
+
 }
