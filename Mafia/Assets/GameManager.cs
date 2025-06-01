@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(WaitAndPlayNext());
         musicButtonImage = musicButton.GetComponent<Image>();
     }
+
     public void RestoreSavedPlayers(Panel_NewGame panel_NewGame)
     {
 
@@ -78,10 +79,12 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator WaitAndPlayNext()
     {
-
-        musicAudioSource.clip = clips[Random.Range(0, clips.Length)];
-        musicAudioSource.Play();
-        yield return new WaitForSeconds(musicAudioSource.clip.length);
+        while (true)
+        {
+            musicAudioSource.clip = clips[Random.Range(0, clips.Length)];
+            musicAudioSource.Play();
+            yield return new WaitForSeconds(musicAudioSource.clip.length);
+        }
     }
 
 
