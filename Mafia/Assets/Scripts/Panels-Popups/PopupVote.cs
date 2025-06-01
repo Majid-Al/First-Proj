@@ -1,5 +1,6 @@
 ﻿using RTLTMPro;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,8 +11,6 @@ public class PopupVote : MonoBehaviour
     [SerializeField]
     Transform playersListParent;
     List<PlayerVotingPrefab> instantiatedPlayersList = new List<PlayerVotingPrefab>();
-
-
 
 
     private void Start()
@@ -31,7 +30,7 @@ public class PopupVote : MonoBehaviour
 
     public void ResetVotes()
     {
-        foreach(var playerItem in instantiatedPlayersList)
+        foreach (var playerItem in instantiatedPlayersList)
         {
             playerItem.ResetVote();
         }
@@ -48,7 +47,7 @@ public class PopupVote : MonoBehaviour
 
     public void NextPhase()
     {
-        if(day)
+        if (day)
         {
             day = false;
             phase.text = "شب";
@@ -66,4 +65,5 @@ public class PopupVote : MonoBehaviour
     }
 
 
-    }
+
+}
