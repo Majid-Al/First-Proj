@@ -1,12 +1,15 @@
 ﻿using RTLTMPro;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Panel_Roles : MonoBehaviour
 {
+    [SerializeField] private AdiveryAdHandler adiveryAdHandler;
     [SerializeField] private List<RoleItem> allRoles;
     [SerializeField] private Transform mafiaContainer;
     [SerializeField] private Transform cityContainer;
@@ -18,18 +21,25 @@ public class Panel_Roles : MonoBehaviour
     [SerializeField] private Button confirmButton;
     [SerializeField] private Button nextButton;
     [SerializeField] private TMP_InputField roleNameInputField; 
-    [SerializeField] private Sprite questionMan; 
+    [SerializeField] private Sprite questionMan, mafiaDefaultSprite, cityDefaultSprite, defaultSprite; 
 
     private RoleCategory selectedCategoryForAdding;
     private int totalPlayers;
 
     private void Start()
     {
+        Debug.Log("majid start is called");
+    }
+    public async void SetUp()
+    {
         totalPlayers = GameManager.Instance.players.Count;
         CreateUIItems();
-        OnRoleCountChanged();
+        await OnRoleCountChanged();
+        this.gameObject.SetActive(true);
+        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(true);
         confirmButton.onClick.AddListener(OnConfirmAddRole);
-
+        
     }
     private void OnConfirmAddRole()
     {
@@ -39,7 +49,18 @@ public class Panel_Roles : MonoBehaviour
             Debug.LogWarning("نام نقش نمی‌تواند خالی باشد!");
             return;
         }
-
+        switch (selectedCategoryForAdding)
+        {
+            case RoleCategory.Mafia:
+                questionMan = mafiaDefaultSprite;
+                break;
+            case RoleCategory.City:
+                questionMan = cityDefaultSprite;
+                break;
+            default:
+                questionMan = defaultSprite; 
+                break;
+        }
         RoleItem newRole = new RoleItem
         {
             roleName = newRoleName,
@@ -88,16 +109,27 @@ public class Panel_Roles : MonoBehaviour
         AddAddButton(cityContainer, RoleCategory.City);
         AddAddButton(independentContainer, RoleCategory.Independent);
     }
+
     private void AddAddButton(Transform parent, RoleCategory category)
     {
         var addButton = Instantiate(addRoleButtonPrefab, parent);
         addButton.onClick.AddListener(() => OnAddButtonClicked(category));
     }
+
     private void OnAddButtonClicked(RoleCategory category)
     {
-        selectedCategoryForAdding = category;
-        roleNameInputField.text = "";
-        popupAddRole.SetActive(true);
+        //bool adShown = adiveryAdHandler.ShowRewardAd();
+        //if (adShown)
+        //{
+            selectedCategoryForAdding = category;
+            roleNameInputField.text = "";
+            popupAddRole.SetActive(true);
+        //}
+        //else
+        //{
+        //    //  there is a problem with adding the new roll please try again later - message
+        //Debug.Log("there is a in loading the ad");
+        //}
     }
 
 
@@ -117,11 +149,12 @@ public class Panel_Roles : MonoBehaviour
         return GetCurrentTotalSelected() < totalPlayers;
     }
 
-    public void OnRoleCountChanged()
+    public Task OnRoleCountChanged()
     {
         int totalSelected = GetCurrentTotalSelected();
         nextButton.interactable = (totalSelected == totalPlayers);
         Debug.Log($"‌Choose: {totalSelected}/{totalPlayers}");
+        return Task.CompletedTask;
     }
 
     private int GetCurrentTotalSelected()

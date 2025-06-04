@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f287a7c14fcb7ad46b85726b90b9b873
+guid: ae115c193b7ae424f95973b55ad50ea1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1001924344022661877
-    second: Silencer1_0
+      213: -6652868869523632007
+    second: MafiaNewRole_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Silencer1_0
+      name: MafiaNewRole_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5fa7949e1ec87ed00800000000000000
-      internalID: 1001924344022661877
+      spriteID: 9701ac6f2034ca3a0800000000000000
+      internalID: -6652868869523632007
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Silencer1_0: 1001924344022661877
+      MafiaNewRole_0: -6652868869523632007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

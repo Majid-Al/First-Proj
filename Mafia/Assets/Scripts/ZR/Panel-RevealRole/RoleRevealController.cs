@@ -6,6 +6,10 @@ using RTLTMPro;
 
 public class RoleRevealController : MonoBehaviour
 {
+
+    [Header("Dependencies")]
+    [SerializeField] AdiveryAdHandler adiveryAdHandler;
+
     [Header("UI Panels")]
     public GameObject beforeRevealPanel;
     public GameObject afterRevealPanel;
@@ -68,9 +72,9 @@ public class RoleRevealController : MonoBehaviour
                 ShowBeforePanel();
             else
             {
-
                 Debug.Log("All Role Showed!");
                 panelGame.SetActive(true);
+                adiveryAdHandler.ShowInterstitialAd();
                 this.gameObject.SetActive(false);
             }
         });

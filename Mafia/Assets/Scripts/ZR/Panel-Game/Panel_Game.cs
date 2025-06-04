@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using AdiveryUnity;
+using RTLTMPro;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class Panel_Game : MonoBehaviour
 {
     public static Panel_Game Instance;
+    [SerializeField] private AdiveryAdHandler adiveryAdHandler;
     void Awake() => Instance = this;
 
     [Header("Parents for scroll view")]
@@ -23,6 +28,7 @@ public class Panel_Game : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(ShowTimeBaseAd());
         CreateFinalLists();
         ShowAllActions();
     }
@@ -135,5 +141,28 @@ public class Panel_Game : MonoBehaviour
         }
     }
 
+    #region -- timebase Ad
+    [SerializeField]
+    RTLTextMeshPro adTimerText;
+    private IEnumerator ShowTimeBaseAd()
+    {
+        while (true)
+        {
+            yield return StartCoroutine(CountdownCoroutine(300));
+            adiveryAdHandler.ShowInterstitialAd();
+        }
+    }
 
+    private IEnumerator CountdownCoroutine(int time)
+    {
+        while (time > 0)
+        {
+            System.TimeSpan newTime = System.TimeSpan.FromSeconds(time);
+            adTimerText.text = newTime.ToString(@"ss\:mm");
+            yield return new WaitForSeconds(1);
+            time--;
+        }
+        adTimerText.text = "00:00";
+    }
+    #endregion
 }

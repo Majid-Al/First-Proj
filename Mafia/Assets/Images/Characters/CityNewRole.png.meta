@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f287a7c14fcb7ad46b85726b90b9b873
+guid: c723c466e8de99c4188bcb9dad932d87
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1001924344022661877
-    second: Silencer1_0
+      213: -9025359900640809020
+    second: CityNewRole_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Silencer1_0
+      name: CityNewRole_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5fa7949e1ec87ed00800000000000000
-      internalID: 1001924344022661877
+      spriteID: 4cfef302dfa7fb280800000000000000
+      internalID: -9025359900640809020
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Silencer1_0: 1001924344022661877
+      CityNewRole_0: -9025359900640809020
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

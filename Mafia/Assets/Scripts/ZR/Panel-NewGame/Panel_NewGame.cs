@@ -18,6 +18,7 @@ public class Panel_NewGame : MonoBehaviour
     private int playerCount;
     private void Start()
     {
+
         unAvailableImages=new List<Sprite>(availableImages);
         playerCount = PlayerPrefs.GetInt("SavedPlayerCount", 0);
         GameManager.Instance.RestoreSavedPlayers(this);
@@ -100,12 +101,11 @@ public class Panel_NewGame : MonoBehaviour
     }
     public void NextButton()
     {
-
         if (listPlayerName.Count < 5)
         {
             Debug.Log("Player Count HaveTo be More than 5");
+            Panel_Roles.SetUp();
             this.gameObject.SetActive(false);
-            Panel_Roles.gameObject.SetActive(true);
         }
         else
         {

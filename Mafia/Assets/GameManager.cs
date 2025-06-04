@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
         int playerCount = PlayerPrefs.GetInt("SavedPlayerCount", 0);
         for (int i = 1; i <= playerCount; i++)
         {
-            Debug.Log("Majid for loop count : " + i);
             string nameKey = "Player" + i.ToString() + "_Name";
             string avatarKey = "Player" + i.ToString() + "_Avatar";
 
