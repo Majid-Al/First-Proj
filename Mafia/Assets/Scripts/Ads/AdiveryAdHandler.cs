@@ -1,5 +1,4 @@
 using AdiveryUnity;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class AdiveryAdHandler : MonoBehaviour

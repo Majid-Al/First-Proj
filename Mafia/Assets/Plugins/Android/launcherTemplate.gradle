@@ -6,7 +6,6 @@ dependencies {
     implementation project(':unityLibrary')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.10"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.12'
     }
 
 

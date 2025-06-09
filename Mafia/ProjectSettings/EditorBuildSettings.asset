@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/ZR.unity
+    guid: 4cb3c2f9310d8ac4b86181f7531eda28
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 1f6e59baa059f8441b4d1003959866a5, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: deca4687bbda7c6458a89176361d53bc, type: 2}
