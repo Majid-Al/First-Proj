@@ -1299,6 +1299,7 @@ GameObject:
   - component: {fileID: 126322745}
   - component: {fileID: 126322746}
   - component: {fileID: 126322747}
+  - component: {fileID: 126322748}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1371,6 +1372,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 1
+--- !u!114 &126322748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126322744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dba672fff85aae42974bc377c044725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentSizeFitter: {fileID: 126322747}
 --- !u!1 &166188306
 GameObject:
   m_ObjectHideFlags: 0
@@ -26918,7 +26932,7 @@ MonoBehaviour:
   confirmButton: {fileID: 2084053833}
   nextButton: {fileID: 1096562390}
   roleNameInputField: {fileID: 834575374}
-  questionMan: {fileID: 7501625820067622951, guid: 742e728b949fb4b4fa8e706cd305d15c, type: 3}
+  questionMan: {fileID: 21300000, guid: 742e728b949fb4b4fa8e706cd305d15c, type: 3}
   mafiaDefaultSprite: {fileID: 21300000, guid: ae115c193b7ae424f95973b55ad50ea1, type: 3}
   cityDefaultSprite: {fileID: 21300000, guid: c723c466e8de99c4188bcb9dad932d87, type: 3}
   defaultSprite: {fileID: 21300000, guid: 742e728b949fb4b4fa8e706cd305d15c, type: 3}
@@ -29145,7 +29159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 55
+    m_Left: 0
     m_Right: 0
     m_Top: 40
     m_Bottom: 220
@@ -30691,7 +30705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 55
+    m_Left: 0
     m_Right: 0
     m_Top: 10
     m_Bottom: 220
@@ -33144,7 +33158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 55
+    m_Left: 0
     m_Right: 0
     m_Top: 40
     m_Bottom: 220

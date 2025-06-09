@@ -21,7 +21,7 @@ public class Panel_Roles : MonoBehaviour
     [SerializeField] private Button confirmButton;
     [SerializeField] private Button nextButton;
     [SerializeField] private TMP_InputField roleNameInputField; 
-    [SerializeField] private Sprite questionMan, mafiaDefaultSprite, cityDefaultSprite, defaultSprite; 
+    [SerializeField] private Sprite questionMan, mafiaDefaultSprite, cityDefaultSprite, defaultSprite;
 
     private RoleCategory selectedCategoryForAdding;
     private int totalPlayers;
