@@ -45,13 +45,20 @@ public class RoleItemUI : MonoBehaviour
 
         minusButton.onClick.AddListener(() =>
         {
-            if (roleData.count == 1)
+            //if (roleData.count == 1)
+            //{
+            //    roleData.count--;
+            //    UpdateCount(); 
+            //    panelRoles.OnRoleCountChanged();
+
+            //}چ
+            if (roleData.count > 0)
             {
                 roleData.count--;
-                UpdateCount(); 
+                UpdateCount();
                 panelRoles.OnRoleCountChanged();
-
             }
+
         });
 
 

@@ -28630,7 +28630,7 @@ MonoBehaviour:
   cityActionsParent: {fileID: 1857904406}
   actionItemPrefab: {fileID: 746345788021342249, guid: b0c5d9fe8b59f1c48a553c237d311353, type: 3}
   popupVotePanel: {fileID: 2064144505}
-  deleteConfirmationPanel: {fileID: 0}
+  deleteConfirmationPanel: {fileID: 1056616983}
   adTimerText: {fileID: 1570610565}
 --- !u!1 &1327671806
 GameObject:

@@ -79,12 +79,7 @@ public class FinalPlayerInfo : MonoBehaviour
         playerHolder.gameObject.SetActive(true);
         roleHolder.gameObject.SetActive(false);
     }
-    //public void OnRemovePlayer()
-    //{
-    //    GameManager.Instance.RemovePlayer(playerName);
 
-    //    Destroy(this.gameObject);
-    //}
     public void OnRemovePlayer()
     {
         if (Panel_Game.Instance.deleteConfirmationPanel != null)
