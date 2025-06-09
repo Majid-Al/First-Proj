@@ -15,7 +15,7 @@ public class Panel_Roles : MonoBehaviour
     [SerializeField] private Transform cityContainer;
     [SerializeField] private Transform independentContainer;
     [SerializeField] private RoleItemUI roleItemPrefab;
-    [SerializeField] private GameObject PannelRevealRole;
+    [SerializeField] private GameObject PannelRevealRole, popupWarning, popupAdNotification;
     [SerializeField] private Button addRoleButtonPrefab;
     [SerializeField] private GameObject popupAddRole;
     [SerializeField] private Button confirmButton;
@@ -28,6 +28,7 @@ public class Panel_Roles : MonoBehaviour
 
     public async void SetUp()
     {
+        popupAdNotification.SetActive(true);
         totalPlayers = GameManager.Instance.players.Count;
         CreateUIItems();
         await OnRoleCountChanged();
@@ -114,18 +115,19 @@ public class Panel_Roles : MonoBehaviour
 
     private void OnAddButtonClicked(RoleCategory category)
     {
-        //bool adShown = adiveryAdHandler.ShowRewardAd();
-        //if (adShown)
-        //{
+
+        bool adShown = adiveryAdHandler.ShowRewardAd();
+        if (adShown)
+        {
             selectedCategoryForAdding = category;
             roleNameInputField.text = "";
             popupAddRole.SetActive(true);
-        //}
-        //else
-        //{
-        //    //  there is a problem with adding the new roll please try again later - message
-        //Debug.Log("there is a in loading the ad");
-        //}
+        }
+        else
+        {
+            //  there is a problem with adding the new roll please try again later - message
+            Debug.Log("there is a in loading the ad");
+        }
     }
 
 

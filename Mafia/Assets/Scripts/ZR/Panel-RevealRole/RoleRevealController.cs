@@ -29,7 +29,7 @@ public class RoleRevealController : MonoBehaviour
     private List<RoleItem> selectedRoles;
     private int currentIndex = 0;
 
-    public GameObject panelGame;
+    public GameObject panelGame,popupGoToAd;
     void Start()
     {
         players = GameManager.Instance.players;
@@ -55,6 +55,7 @@ public class RoleRevealController : MonoBehaviour
             ShowAfterPanel();
         });
     }
+ 
 
     void ShowAfterPanel()
     {
@@ -75,12 +76,21 @@ public class RoleRevealController : MonoBehaviour
             else
             {
                 Debug.Log("All Role Showed!");
-                panelGame.SetActive(true);
-                adiveryAdHandler.ShowInterstitialAd();
-                this.gameObject.SetActive(false);
+                popupGoToAd.SetActive(true);
             }
         });
     }
+
+    public void GoToGame()
+    {
+        panelGame.SetActive(true);
+        adiveryAdHandler.ShowInterstitialAd();
+        this.gameObject.SetActive(false);
+
+    }
+
+
+
 
     void Shuffle(List<RoleItem> list)
     {
