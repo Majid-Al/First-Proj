@@ -25,6 +25,37 @@ public class Panel_Game : MonoBehaviour
     public RoleAction actionItemPrefab;
     private FinalPlayerInfo selectedPlayer;
     [SerializeField] GameObject popupVotePanel;
+    private FinalPlayerInfo playerToDelete;
+    public void SetPlayerToDelete(FinalPlayerInfo player)
+    {
+        playerToDelete = player;
+    }
+    public GameObject deleteConfirmationPanel;
+
+    public void ConfirmDeletePlayer()
+    {
+        if (playerToDelete != null)
+        {
+            GameManager.Instance.RemovePlayer(playerToDelete.GetPlayerName());
+            Destroy(playerToDelete.gameObject);
+            playerToDelete = null;
+        }
+
+        if (deleteConfirmationPanel != null)
+        {
+            deleteConfirmationPanel.SetActive(false);
+        }
+    }
+
+    public void CancelDeletePlayer()
+    {
+        playerToDelete = null;
+
+        if (deleteConfirmationPanel != null)
+        {
+            deleteConfirmationPanel.SetActive(false);
+        }
+    }
 
     void Start()
     {

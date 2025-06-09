@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public List<RoleItem> selectedRoles = new List<RoleItem>();
     public List<PlayerData> players = new List<PlayerData>();
 
+    public void RemovePlayer(string playerName)
+    {
+        players.RemoveAll(p => p.name == playerName);
+    }
 
     private void Awake()
     {

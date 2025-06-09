@@ -13,6 +13,9 @@ public class FinalPlayerInfo : MonoBehaviour
     public Transform actionIconHolder;
     public Transform roleHolder;
     public Transform playerHolder;
+    public Button removePlayerButton;
+    public GameObject deleteConfirmationPanel;
+
 
     private string playerName;
 
@@ -22,6 +25,12 @@ public class FinalPlayerInfo : MonoBehaviour
         playerNameText.text = name;
         playerAvatarImage.sprite = avatar;
         SetSelected(false);
+
+        if (removePlayerButton != null)
+        {
+            removePlayerButton.onClick.RemoveAllListeners();
+            removePlayerButton.onClick.AddListener(OnRemovePlayer);
+        }
     }
 
     public string GetPlayerName()
@@ -70,6 +79,22 @@ public class FinalPlayerInfo : MonoBehaviour
         playerHolder.gameObject.SetActive(true);
         roleHolder.gameObject.SetActive(false);
     }
+    //public void OnRemovePlayer()
+    //{
+    //    GameManager.Instance.RemovePlayer(playerName);
+
+    //    Destroy(this.gameObject);
+    //}
+    public void OnRemovePlayer()
+    {
+        if (Panel_Game.Instance.deleteConfirmationPanel != null)
+        {
+            Panel_Game.Instance.deleteConfirmationPanel.SetActive(true);
+
+            Panel_Game.Instance.SetPlayerToDelete(this);
+        }
+    }
+
 
 }
 
