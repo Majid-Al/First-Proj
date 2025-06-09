@@ -26,10 +26,6 @@ public class Panel_Roles : MonoBehaviour
     private RoleCategory selectedCategoryForAdding;
     private int totalPlayers;
 
-    private void Start()
-    {
-        Debug.Log("majid start is called");
-    }
     public async void SetUp()
     {
         totalPlayers = GameManager.Instance.players.Count;
@@ -216,6 +212,7 @@ public enum RoleCategory
 public class RoleItem
 {
     public string roleName;
+    public string roleDescription;
     public Sprite roleImage;
     public RoleCategory category;
     public int count=0;

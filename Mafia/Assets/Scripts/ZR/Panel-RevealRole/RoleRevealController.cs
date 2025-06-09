@@ -23,6 +23,7 @@ public class RoleRevealController : MonoBehaviour
     public RTLTextMeshPro revealedRoleText;
     public Image revealedRoleImage;
     public Button nextPlayerButton;
+    public RTLTextMeshPro description;
 
     private List<PlayerData> players;
     private List<RoleItem> selectedRoles;
@@ -63,6 +64,7 @@ public class RoleRevealController : MonoBehaviour
         var role = selectedRoles[currentIndex];
         revealedRoleText.text = role.roleName;
         revealedRoleImage.sprite = role.roleImage;
+        description.text = role.roleDescription;
 
         nextPlayerButton.onClick.RemoveAllListeners();
         nextPlayerButton.onClick.AddListener(() =>
