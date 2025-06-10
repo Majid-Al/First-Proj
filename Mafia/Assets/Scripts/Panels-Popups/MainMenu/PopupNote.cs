@@ -5,8 +5,8 @@ using UnityEngine;
 public class PopupNote : MonoBehaviour
 {
 
-    [SerializeField] private TMP_InputField inputField;         // User types here
-    [SerializeField] private RTLTextMeshPro displayText;        // Displayed nicely
+    [SerializeField] private TMP_InputField inputField;         
+    [SerializeField] private RTLTextMeshPro displayText;        
 
     private void OnInputChanged(string text)
     {

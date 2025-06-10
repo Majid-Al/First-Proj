@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     Image musicButtonImage;
     private void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         StartCoroutine(WaitAndPlayNext());
         musicButtonImage = musicButton.GetComponent<Image>();
     }

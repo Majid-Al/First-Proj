@@ -26,7 +26,7 @@ public class Panel_NewGame : MonoBehaviour
    }
     private void Update()
     {
-        nextButton.interactable = GameManager.Instance.players.Count > 5;
+        nextButton.interactable = GameManager.Instance.players.Count > 4;
     }
 
     public void AddPlayer()
