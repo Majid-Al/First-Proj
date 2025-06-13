@@ -65,8 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFEE3\uFEAE\uFBFE\uFEE2"
-  m_isRightToLeft: 1
+  m_text: Zahra
+  m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 592c09951e9ad634a956394c6f9f1a66, type: 2}
   m_sharedMaterial: {fileID: 8224176404844419357, guid: 592c09951e9ad634a956394c6f9f1a66, type: 2}
   m_fontSharedMaterials: []
@@ -92,10 +92,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 57.8
   m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0645\u0631\u06CC\u0645"
+  originalText: Zahra
   fixTags: 1
   forceFix: 0
 --- !u!1 &1157609763251862766

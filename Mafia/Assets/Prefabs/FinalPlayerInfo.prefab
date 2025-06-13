@@ -202,10 +202,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 41.3
   m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -483,6 +483,7 @@ MonoBehaviour:
   roleHolder: {fileID: 2076186846053033906}
   playerHolder: {fileID: 6083792367493713983}
   removePlayerButton: {fileID: 5898565954138234187}
+  deleteConfirmationPanel: {fileID: 0}
 --- !u!1 &6025137053398936008
 GameObject:
   m_ObjectHideFlags: 0

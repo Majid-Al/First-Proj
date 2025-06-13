@@ -52,14 +52,14 @@ public class FooterButtonsScript : MonoBehaviour
         if (day)
         {
             day = false;
-            phase.text = "شب";
+            phase.text = "Night";
             phase.color = new Color(224f / 255f, 60f / 255f, 50f / 255f, 255f / 255f);
             gamePanelImage.color = new Color(104f / 255f, 150f / 255f, 230f / 255f);
         }
         else
         {
             day = true;
-            phase.text = "روز";
+            phase.text = "Day";
             phase.color = new Color(50f / 255f, 224f / 255f, 73f / 255f, 255f / 255f);
             dayCount++;
             dayCounter.text = dayCount.ToString();

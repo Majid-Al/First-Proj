@@ -24,11 +24,11 @@ public class PopupTimer : MonoBehaviour
         while (time > 0 )
         {
             System.TimeSpan newTime = System.TimeSpan.FromSeconds(time);
-            text.text = newTime.ToString(@"ss\:mm");
+            text.text = newTime.ToString(@"mm\:ss");
             yield return new WaitForSeconds(1);
             time--;
         }
-        text.text = "00";
+        text.text = "00:00";
         textAudioSource.Play();
 
     }

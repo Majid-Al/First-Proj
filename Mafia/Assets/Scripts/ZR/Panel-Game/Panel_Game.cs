@@ -185,7 +185,7 @@ public class Panel_Game : MonoBehaviour
         while (time > 0)
         {
             System.TimeSpan newTime = System.TimeSpan.FromSeconds(time);
-            adTimerText.text = newTime.ToString(@"ss\:mm");
+            adTimerText.text = newTime.ToString(@"mm\:ss");
             yield return new WaitForSeconds(1);
             time--;
         }

@@ -186,8 +186,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFEE7\uFED4\uFEAE \uFE91\uFECC\uFEAA\uFBFC"
-  m_isRightToLeft: 1
+  m_text: Next Player
+  m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 592c09951e9ad634a956394c6f9f1a66, type: 2}
   m_sharedMaterial: {fileID: 8224176404844419357, guid: 592c09951e9ad634a956394c6f9f1a66, type: 2}
   m_fontSharedMaterials: []
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0646\u0641\u0631 \u0628\u0639\u062F\u06CC"
+  originalText: Next Player
   fixTags: 1
   forceFix: 0
 --- !u!1 &3398530723639291742
@@ -619,7 +619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5814339607262093524
 RectTransform:
   m_ObjectHideFlags: 0
@@ -746,8 +746,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFE8D\uFEB3\uFEE2 \uFEB7\uFEA8\uFEBC\uFBFF\uFE96"
-  m_isRightToLeft: 1
+  m_text: Role
+  m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 592c09951e9ad634a956394c6f9f1a66, type: 2}
   m_sharedMaterial: {fileID: 8224176404844419357, guid: 592c09951e9ad634a956394c6f9f1a66, type: 2}
   m_fontSharedMaterials: []
@@ -773,12 +773,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
+  m_fontSize: 200
   m_fontSizeBase: 150
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 200
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -819,7 +819,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0627\u0633\u0645 \u0634\u062E\u0635\u06CC\u062A"
+  originalText: Role
   fixTags: 1
   forceFix: 0
 --- !u!1 &8061023227622108368
@@ -965,7 +965,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1004,13 +1004,6 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0627\u06CC\u0646 \u06A9\u0631\u06A9\u062A\u0631 \u062A\u0648 \u062E\u0648\u0627\u0628
-    \u0631\u0627\u0647 \u0645\u06CC\u0631\u0647 \u0648 \u0645\u06CC\u0632\u0646\u0647
-    \u062A\u0648 \u0633\u0631 \u06CC\u06A9 \u0646\u0641\u0631 \u0648 \u0627\u0648\u0646
-    \u0634\u062E\u0635 \u0631\u0648\u0632 \u0628\u0639\u062F \u0628\u06CC\u0647\u0648\u0634
-    \u0645\u06CC\u0634\u0647. (\u0646\u0647 \u0645\u06CC\u062A\u0648\u0646\u0647
-    \u0627\u0632 \u0642\u062F\u0631\u062A \u0647\u0627\u0634 \u0627\u0633\u062A\u0641\u0627\u062F\u0647
-    \u0628\u06A9\u0646\u0647, \u0646\u0647 \u0645\u06CC\u062A\u0648\u0646\u0647 \u062D\u0631\u0641\u06CC
-    \u0628\u0632\u0646\u0647)"
+  originalText: there is no information for this role.
   fixTags: 1
   forceFix: 0
