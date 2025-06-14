@@ -2499,7 +2499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc8a94fe953e2044808ab1619546f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adiveryAdHandler: {fileID: 758393092}
   beforeRevealPanel: {fileID: 434931153}
   afterRevealPanel: {fileID: 992720680}
   playerNameText: {fileID: 434931152}
@@ -16474,9 +16473,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 758393088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea34e40947f4e6f4fbbf3385564f59f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 310a526d97a1cd54ab5a271a7b87a769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _testMode: 1
 --- !u!1 &774169274
 GameObject:
   m_ObjectHideFlags: 0
@@ -24871,7 +24871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ad720f65654a14cb86b9b6a9bd08a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adiveryAdHandler: {fileID: 758393092}
   allRoles:
   - roleName: Mafia
     roleDescription: "Job Description:\r\nA member of the mafia group who helps the
@@ -26063,7 +26062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257204bf4a5d73a499ac04dab7a61509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adiveryAdHandler: {fileID: 758393092}
   playerInfoContent: {fileID: 1996979935}
   playerInfoPrefab: {fileID: 8220815341666791107, guid: 09dcadfca8bcdb546ba849ec11bace7a, type: 3}
   playerRolePrefab: {fileID: 6971411255840608808, guid: e4b3ed5a499adda46a699ba3023a0c8f, type: 3}

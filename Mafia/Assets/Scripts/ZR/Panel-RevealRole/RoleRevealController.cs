@@ -7,7 +7,7 @@ public class RoleRevealController : MonoBehaviour
 {
 
     [Header("Dependencies")]
-    [SerializeField] AdiveryAdHandler adiveryAdHandler;
+
 
     [Header("UI Panels")]
     public GameObject beforeRevealPanel;
@@ -83,7 +83,7 @@ public class RoleRevealController : MonoBehaviour
     public void GoToGame()
     {
         panelGame.SetActive(true);
-        adiveryAdHandler.ShowInterstitialAd();
+       // adiveryAdHandler.ShowInterstitialAd();
         this.gameObject.SetActive(false);
 
     }

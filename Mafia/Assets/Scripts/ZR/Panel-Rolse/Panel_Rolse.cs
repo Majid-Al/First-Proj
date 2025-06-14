@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class Panel_Roles : MonoBehaviour
 {
-    [SerializeField] private AdiveryAdHandler adiveryAdHandler;
+    [SerializeField] ShowRewardAdScript showRewardAdScript;
+
     [SerializeField] private List<RoleItem> allRoles;
     [SerializeField] private Transform mafiaContainer;
     [SerializeField] private Transform cityContainer;
@@ -109,22 +110,34 @@ public class Panel_Roles : MonoBehaviour
     {
         var addButton = Instantiate(addRoleButtonPrefab, parent);
         addButton.onClick.AddListener(() => OnAddButtonClicked(category));
+        addButton.interactable = false;
     }
-
     private void OnAddButtonClicked(RoleCategory category)
     {
 
-        bool adShown = adiveryAdHandler.ShowRewardAd();
-        if (adShown)
+        //bool adShown = adiveryAdHandler.ShowRewardAd();
+        //if (adShown)
+        //{
+        //    selectedCategoryForAdding = category;
+        //    roleNameInputField.text = "";
+        //    popupAddRole.SetActive(true);
+        //}
+        //else
+        //{
+        //    //  there is a problem with adding the new roll please try again later - message
+        //    Debug.Log("there is a in loading the ad");
+        //}
+    }
+    public void OnmajidiiClicked()
+    {
+        if (GetCurrentTotalSelected() == totalPlayers)
         {
-            selectedCategoryForAdding = category;
-            roleNameInputField.text = "";
-            popupAddRole.SetActive(true);
+            Debug.Log("SUCCESS");
+            SaveSelectedRoles();
         }
         else
         {
-            //  there is a problem with adding the new roll please try again later - message
-            Debug.Log("there is a in loading the ad");
+            Debug.LogWarning("Not Ok !");
         }
     }
 

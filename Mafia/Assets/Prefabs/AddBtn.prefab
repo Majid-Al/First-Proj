@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 6107982243967389671}
   - component: {fileID: 6608490431967056656}
   - component: {fileID: 6954032447791379599}
+  - component: {fileID: 631855983713302136}
   m_Layer: 5
   m_Name: AddBtn
   m_TagString: Untagged
@@ -262,3 +263,36 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &631855983713302136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6733775205233848546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1262153e94f86104193c3a0fcc98ee98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 6954032447791379599}
+  cannotLoadAdPanel: {fileID: 9090290371541851872, guid: 6c46e7ac1135d1d439e2129a421a398d, type: 3}
+  adSuccessMethod:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3259635569348481936, guid: a89b931cf1976024790c09f674baf531, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _isAdLoaded: 0
+  adShownSuccess: 0
+  androidAdRewardId: Mafia-RewardAD1
+  _retryDelaySeconds: 3

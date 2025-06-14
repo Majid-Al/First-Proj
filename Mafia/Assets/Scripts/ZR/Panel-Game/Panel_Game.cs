@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Panel_Game : MonoBehaviour
 {
     public static Panel_Game Instance;
-    [SerializeField] private AdiveryAdHandler adiveryAdHandler;
     void Awake() => Instance = this;
 
     [Header("Parents for scroll view")]
@@ -176,7 +175,7 @@ public class Panel_Game : MonoBehaviour
         while (true)
         {
             yield return StartCoroutine(CountdownCoroutine(300));
-            adiveryAdHandler.ShowInterstitialAd();
+            //adiveryAdHandler.ShowInterstitialAd();
         }
     }
 
