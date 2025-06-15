@@ -927,7 +927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3189318030488758479
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1302,7 +1302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ad720f65654a14cb86b9b6a9bd08a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showRewardAdScript: {fileID: 0}
   allRoles:
   - roleName: Mafia
     roleDescription: "Job Description:\r\nA member of the mafia group who helps the

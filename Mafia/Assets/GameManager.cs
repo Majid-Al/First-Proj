@@ -49,8 +49,6 @@ public class GameManager : MonoBehaviour
             string name = PlayerPrefs.GetString(nameKey, "none");
             int avatarInt = PlayerPrefs.GetInt(avatarKey, -1);
             panel_NewGame.AddPlayer(name, avatarInt,i);
-            Debug.Log("Player Name: " + name);
-            Debug.Log("Player Avatar Index: " + avatarInt);
         }
 
     }

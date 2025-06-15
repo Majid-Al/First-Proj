@@ -103,7 +103,6 @@ public class Panel_NewGame : MonoBehaviour
     {
         if (listPlayerName.Count < 5)
         {
-            Debug.Log("Player Count HaveTo be More than 5");
             Panel_Roles.SetUp();
             this.gameObject.SetActive(false);
         }

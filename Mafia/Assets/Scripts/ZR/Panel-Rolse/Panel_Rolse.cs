@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TMPro;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 
 public class Panel_Roles : MonoBehaviour
 {
-    [SerializeField] ShowRewardAdScript showRewardAdScript;
+    ShowRewardAdScript showRewardAdScript;
 
     [SerializeField] private List<RoleItem> allRoles;
     [SerializeField] private Transform mafiaContainer;
@@ -109,16 +110,18 @@ public class Panel_Roles : MonoBehaviour
     private void AddAddButton(Transform parent, RoleCategory category)
     {
         var addButton = Instantiate(addRoleButtonPrefab, parent);
+        showRewardAdScript = addButton.GetComponent<ShowRewardAdScript>();
         addButton.onClick.AddListener(() => OnAddButtonClicked(category));
         addButton.interactable = false;
     }
     private void OnAddButtonClicked(RoleCategory category)
     {
+        showRewardAdScript.ShowAd();
+        selectedCategoryForAdding = category;
 
         //bool adShown = adiveryAdHandler.ShowRewardAd();
         //if (adShown)
         //{
-        //    selectedCategoryForAdding = category;
         //    roleNameInputField.text = "";
         //    popupAddRole.SetActive(true);
         //}
@@ -128,17 +131,27 @@ public class Panel_Roles : MonoBehaviour
         //    Debug.Log("there is a in loading the ad");
         //}
     }
-    public void OnmajidiiClicked()
+
+
+    public void adShownSuccessfully()
     {
-        if (GetCurrentTotalSelected() == totalPlayers)
-        {
-            Debug.Log("SUCCESS");
-            SaveSelectedRoles();
-        }
-        else
-        {
-            Debug.LogWarning("Not Ok !");
-        }
+        Debug.Log("Parent active in hierarchy: " + popupAddRole.transform.parent.gameObject.activeInHierarchy);
+
+        Debug.Log("majid ad shown success and this func got called");
+        roleNameInputField.text = "";
+        Debug.Log("1");
+
+        //StartCoroutine(DebugPopupWatcher());
+        popupAddRole.SetActive(true);
+        Debug.Log("2");
+
+    }
+
+    IEnumerator DebugPopupWatcher()
+    {
+        popupAddRole.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Still active after 1 second: " + popupAddRole.activeSelf);
     }
 
 

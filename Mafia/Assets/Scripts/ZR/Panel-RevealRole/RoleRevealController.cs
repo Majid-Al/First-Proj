@@ -75,22 +75,11 @@ public class RoleRevealController : MonoBehaviour
             else
             {
                 Debug.Log("All Role Showed!");
-                popupGoToAd.SetActive(true);
+                panelGame.SetActive(true);
+                this.gameObject.SetActive(false);
             }
         });
     }
-
-    public void GoToGame()
-    {
-        panelGame.SetActive(true);
-       // adiveryAdHandler.ShowInterstitialAd();
-        this.gameObject.SetActive(false);
-
-    }
-
-
-
-
     void Shuffle(List<RoleItem> list)
     {
         for (int i = 0; i < list.Count; i++)

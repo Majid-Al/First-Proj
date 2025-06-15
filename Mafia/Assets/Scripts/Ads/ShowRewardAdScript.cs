@@ -7,7 +7,8 @@ public class ShowRewardAdScript : MonoBehaviour, IUnityAdsLoadListener, IUnityAd
 {
     [SerializeField] Button _showAdButton;
     [SerializeField] GameObject cannotLoadAdPanel;
-    [SerializeField] UnityEvent adSuccessMethod;
+    [SerializeField] Panel_Roles panelRoles;
+    [SerializeField] UnityEvent adSuccessMethodCall;
     public bool _isAdLoaded = false;
     public bool adShownSuccess = false;
 
@@ -17,9 +18,6 @@ public class ShowRewardAdScript : MonoBehaviour, IUnityAdsLoadListener, IUnityAd
     void Awake()
     {
         _adUnitId = androidAdRewardId;
-#if UNITY_ANDROID
-        _adUnitId = androidAdRewardId;
-#endif
 
         // Disable the button until the ad is ready to show:
 
@@ -56,7 +54,6 @@ public class ShowRewardAdScript : MonoBehaviour, IUnityAdsLoadListener, IUnityAd
             _isAdLoaded = true;
 
             // Configure the button to call the ShowAd() method when clicked:
-            _showAdButton.onClick.AddListener(ShowAd);
             // Enable the button for users to click:
             _showAdButton.interactable = true;
         }
@@ -89,7 +86,12 @@ public class ShowRewardAdScript : MonoBehaviour, IUnityAdsLoadListener, IUnityAd
         }
             LoadAd();
         adShownSuccess = true;
-        adSuccessMethod.Invoke();
+        //if (adSuccessMethodCall != null)
+        //{
+        //adSuccessMethodCall.Invoke();
+
+        //}
+            panelRoles.adShownSuccessfully();
     }
 
     // Implement Load and Show Listener error callbacks:
@@ -125,6 +127,8 @@ public class ShowRewardAdScript : MonoBehaviour, IUnityAdsLoadListener, IUnityAd
         LoadAd();
         Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
         Debug.Log($" Majid Error showing Ad Unit {error.ToString()}");
+
+
 
         // Use the error details to determine whether to try to load another ad.
     }

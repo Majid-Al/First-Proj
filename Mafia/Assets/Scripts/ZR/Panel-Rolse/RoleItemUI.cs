@@ -20,9 +20,6 @@ public class RoleItemUI : MonoBehaviour
         panelRoles = panel;
         roleNameText.text = data.roleName;
 
-        Debug.Log(data.roleName);
-        Debug.Log(roleNameText.text);
-
         roleImageText.sprite = roleData.roleImage;
 
         plusButton.onClick.RemoveAllListeners();

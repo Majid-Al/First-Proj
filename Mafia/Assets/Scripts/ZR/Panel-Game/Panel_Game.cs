@@ -10,8 +10,10 @@ public class Panel_Game : MonoBehaviour
     void Awake() => Instance = this;
 
     [Header("Parents for scroll view")]
-    public Transform playerInfoContent; 
+    public Transform playerInfoContent;
 
+    [Header("Dependencies")]
+    [SerializeField]ShowInterAdScript showAdScript;
     [Header("Prefabs")]
     public FinalPlayerInfo playerInfoPrefab; 
     public FinalPlayerRole playerRolePrefab;
@@ -175,7 +177,7 @@ public class Panel_Game : MonoBehaviour
         while (true)
         {
             yield return StartCoroutine(CountdownCoroutine(300));
-            //adiveryAdHandler.ShowInterstitialAd();
+            showAdScript.ShowAd();
         }
     }
 

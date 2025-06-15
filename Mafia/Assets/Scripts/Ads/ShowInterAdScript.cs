@@ -1,20 +1,22 @@
 using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.Events;
 
 public class ShowInterAdScript : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
-    [SerializeField] string _androidAdUnitId = "Interstitial_Android";
-    [SerializeField] string _iOSAdUnitId = "Interstitial_iOS";
+    [SerializeField] string _androidAdUnitId = "Mafia-InterstitialAD1";
+    [SerializeField] UnityEvent adSuccessMethodCall;
     string _adUnitId;
 
     void Awake()
     {
         // Get the Ad Unit ID for the current platform:
-        _adUnitId = (Application.platform == RuntimePlatform.IPhonePlayer)
-        ? _iOSAdUnitId
-        : _androidAdUnitId;
+        _adUnitId = _androidAdUnitId;
     }
-
+    private void Start()
+    {
+        LoadAd();
+    }
     // Load content to the Ad Unit:
     public void LoadAd()
     {
@@ -29,6 +31,11 @@ public class ShowInterAdScript : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         // Note that if the ad content wasn't previously loaded, this method will fail
         Debug.Log("Showing Ad: " + _adUnitId);
         Advertisement.Show(_adUnitId, this);
+        if(adSuccessMethodCall != null)
+        {
+        adSuccessMethodCall.Invoke();
+
+        }
     }
 
     // Implement Load Listener and Show Listener interface methods: 
