@@ -1,5 +1,6 @@
 ﻿using RTLTMPro;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,8 @@ public class RoleItemUI : MonoBehaviour
 
     private RoleItem roleData;
     private Panel_Roles panelRoles;
+    [SerializeField]
+    GameObject cantSelectMoreRoles,setRolesPanel;
 
     public void Setup(RoleItem data, Panel_Roles panel)
     {
@@ -37,6 +40,9 @@ public class RoleItemUI : MonoBehaviour
                     panelRoles.OnRoleCountChanged();
 
                 }
+            }else
+            {
+                Instantiate(cantSelectMoreRoles, panel.transform);
             }
         });
 
@@ -48,7 +54,7 @@ public class RoleItemUI : MonoBehaviour
             //    UpdateCount(); 
             //    panelRoles.OnRoleCountChanged();
 
-            //}چ
+            //}
             if (roleData.count > 0)
             {
                 roleData.count--;

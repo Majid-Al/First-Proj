@@ -598,6 +598,7 @@ MonoBehaviour:
   countText: {fileID: 1747306194813996948}
   plusButton: {fileID: 852798933054204865}
   minusButton: {fileID: 5270094223226681500}
+  cantSelectMoreRoles: {fileID: 4516553640707950936, guid: bbcb591d321de5d4a938e53f4a38d2b0, type: 3}
 --- !u!1 &8058265549272183027
 GameObject:
   m_ObjectHideFlags: 0

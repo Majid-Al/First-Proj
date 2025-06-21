@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    public Panel_Roles Panel_Roles;
     public List<RoleItem> selectedRoles = new List<RoleItem>();
     public List<PlayerData> players = new List<PlayerData>();
 

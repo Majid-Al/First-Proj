@@ -79,19 +79,19 @@ public class ShowRewardAdScript : MonoBehaviour, IUnityAdsLoadListener, IUnityAd
     // Implement the Show Listener's OnUnityAdsShowComplete callback method to determine if the user gets a reward:
     public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState)
     {
+        Debug.Log("1");
+
         if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
         }
-            LoadAd();
-        adShownSuccess = true;
-        //if (adSuccessMethodCall != null)
-        //{
-        //adSuccessMethodCall.Invoke();
 
-        //}
-            panelRoles.adShownSuccessfully();
+        LoadAd();
+
+        adShownSuccess = true;
+        GameManager.Instance.Panel_Roles.adShownSuccessfully();
+
     }
 
     // Implement Load and Show Listener error callbacks:

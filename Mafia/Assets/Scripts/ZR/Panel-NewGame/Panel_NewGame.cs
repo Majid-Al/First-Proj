@@ -11,7 +11,7 @@ public class Panel_NewGame : MonoBehaviour
     [SerializeField] private TMP_InputField inputName;
     [SerializeField] private List<string> listPlayerName;
     [SerializeField] private Panel_Roles Panel_Roles;
-    [SerializeField] private GameObject Popup_Warning;
+    [SerializeField] private GameObject Popup_Warning,popup_playerCountWarning;
     [SerializeField] private List<Sprite> availableImages;
     [SerializeField] private Button nextButton;
     private List<Sprite> unAvailableImages = new List<Sprite>();
@@ -26,7 +26,7 @@ public class Panel_NewGame : MonoBehaviour
    }
     private void Update()
     {
-        nextButton.interactable = GameManager.Instance.players.Count > 4;
+        //nextButton.interactable = GameManager.Instance.players.Count > 4;
     }
 
     public void AddPlayer()
@@ -63,7 +63,7 @@ public class Panel_NewGame : MonoBehaviour
         PlayerPrefs.SetString(nameKey, playerName);
         PlayerPrefs.SetInt(avatarKey, index);
         PlayerPrefs.SetInt("SavedPlayerCount", playerCount);
-        nextButton.interactable = GameManager.Instance.players.Count > 5;
+        //nextButton.interactable = GameManager.Instance.players.Count > 5;
     }
     public void AddPlayer(string playerName, int avatarIndex,int playerSaveIndex)
     {
@@ -81,7 +81,7 @@ public class Panel_NewGame : MonoBehaviour
         player.Setup(playerName, selectedSprite, playerSaveIndex);
         GameManager.Instance.players.Add(new PlayerData(playerName, selectedSprite));
         inputName.text = "";
-        nextButton.interactable = GameManager.Instance.players.Count > 5;
+        //nextButton.interactable = GameManager.Instance.players.Count > 5;
     }
     public void RemoveList(string name)
     {
@@ -97,18 +97,18 @@ public class Panel_NewGame : MonoBehaviour
         {
             PlayerPrefs.SetInt("SavedPlayerCount", 0);
         }
-        nextButton.interactable = GameManager.Instance.players.Count > 5;
+        //nextButton.interactable = GameManager.Instance.players.Count > 5;
     }
     public void NextButton()
     {
-        if (listPlayerName.Count < 5)
+        if (GameManager.Instance.players.Count > 5)
         {
             Panel_Roles.SetUp();
             this.gameObject.SetActive(false);
         }
         else
         {
-            Debug.Log("It  is Ok");
+            popup_playerCountWarning.SetActive(true);
         }
     }
 }

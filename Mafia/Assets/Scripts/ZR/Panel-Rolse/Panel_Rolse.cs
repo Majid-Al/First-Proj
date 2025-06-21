@@ -18,6 +18,7 @@ public class Panel_Roles : MonoBehaviour
     [SerializeField] private GameObject PannelRevealRole, popupWarning, popupAdNotification;
     [SerializeField] private Button addRoleButtonPrefab;
     [SerializeField] private GameObject popupAddRole;
+
     [SerializeField] private Button confirmButton;
     [SerializeField] private Button nextButton;
     [SerializeField] private TMP_InputField roleNameInputField; 
@@ -117,6 +118,7 @@ public class Panel_Roles : MonoBehaviour
     private void OnAddButtonClicked(RoleCategory category)
     {
         showRewardAdScript.ShowAd();
+        //adShownSuccessfully();
         selectedCategoryForAdding = category;
 
         //bool adShown = adiveryAdHandler.ShowRewardAd();
@@ -135,17 +137,15 @@ public class Panel_Roles : MonoBehaviour
 
     public void adShownSuccessfully()
     {
-        Debug.Log("Parent active in hierarchy: " + popupAddRole.transform.parent.gameObject.activeInHierarchy);
 
-        Debug.Log("majid ad shown success and this func got called");
         roleNameInputField.text = "";
-        Debug.Log("1");
+        popupAddRole.transform.parent.gameObject.SetActive(true);
 
-        //StartCoroutine(DebugPopupWatcher());
         popupAddRole.SetActive(true);
-        Debug.Log("2");
+
 
     }
+
 
     IEnumerator DebugPopupWatcher()
     {
