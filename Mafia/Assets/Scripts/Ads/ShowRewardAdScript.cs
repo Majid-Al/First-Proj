@@ -12,7 +12,7 @@ public class ShowRewardAdScript : MonoBehaviour, IUnityAdsLoadListener, IUnityAd
     public bool _isAdLoaded = false;
     public bool adShownSuccess = false;
 
-    [SerializeField] string androidAdRewardId = "Mafia-RewardAD1";
+    [SerializeField] string androidAdRewardId = "AddRoleAd";
     string _adUnitId = null; // This will remain null for unsupported platforms
 
     void Awake()

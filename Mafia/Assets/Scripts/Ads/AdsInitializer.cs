@@ -3,7 +3,7 @@ using UnityEngine.Advertisements;
 
 public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 {
-    [SerializeField] bool _testMode = true;
+    [SerializeField] bool _testMode = false;
     private string _gameId = "5876545";
 
     void Awake()

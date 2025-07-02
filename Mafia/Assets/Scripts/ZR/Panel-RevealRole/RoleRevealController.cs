@@ -8,6 +8,8 @@ public class RoleRevealController : MonoBehaviour
 
     [Header("Dependencies")]
 
+    [Header("Animation")]
+    [SerializeField]Animator animator;
 
     [Header("UI Panels")]
     public GameObject beforeRevealPanel;
@@ -40,12 +42,8 @@ public class RoleRevealController : MonoBehaviour
 
     void ShowBeforePanel()
     {
-        beforeRevealPanel.SetActive(true);
-        afterRevealPanel.SetActive(false);
-
+        animator.Play("reset");
         playerNameText.text = players[currentIndex].name;
-        Debug.Log(playerNameText.text);
-        Debug.Log(players[currentIndex].name);
         playerAvatar.sprite = players[currentIndex].avatar; 
 
         revealButton.onClick.RemoveAllListeners();
@@ -58,9 +56,7 @@ public class RoleRevealController : MonoBehaviour
 
     void ShowAfterPanel()
     {
-        beforeRevealPanel.SetActive(false);
-        afterRevealPanel.SetActive(true);
-
+        animator.Play("cart spin");
         var role = selectedRoles[currentIndex];
         revealedRoleText.text = role.roleName;
         revealedRoleImage.sprite = role.roleImage;
@@ -74,7 +70,6 @@ public class RoleRevealController : MonoBehaviour
                 ShowBeforePanel();
             else
             {
-                Debug.Log("All Role Showed!");
                 panelGame.SetActive(true);
                 this.gameObject.SetActive(false);
             }

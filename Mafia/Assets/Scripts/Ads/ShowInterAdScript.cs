@@ -4,14 +4,14 @@ using UnityEngine.Events;
 
 public class ShowInterAdScript : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
-    [SerializeField] string _androidAdUnitId = "Mafia-InterstitialAD1";
+    [SerializeField] string _androidInterstitialADId = "TimeBased";
     [SerializeField] UnityEvent adSuccessMethodCall;
     string _adUnitId;
 
     void Awake()
     {
         // Get the Ad Unit ID for the current platform:
-        _adUnitId = _androidAdUnitId;
+        _adUnitId = _androidInterstitialADId;
     }
     private void Start()
     {

@@ -30,6 +30,6 @@ public class PlayerVotingPrefab : MonoBehaviour
     }
     public void ResetVote()
     {
-        voteText.text = "00";
+        voteText.text = "0";
     }
 }
